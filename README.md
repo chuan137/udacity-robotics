@@ -17,4 +17,7 @@ Directory: p2/
 Files:
 
 * writeup.md
+* IK code: scripts/IK_server.py 
+* FK code: scripts/FK.py 
+* demo video: record1.mp4 ( please skip first 30 seconds )
 
