@@ -1,4 +1,7 @@
 *.pyc
 .ipynb_checkpoints
-__pycache__
-_tmp
+*.pcd
+
+*smallset/
+__pycache__/
+_tmp/
