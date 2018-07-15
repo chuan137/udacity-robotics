@@ -21,3 +21,15 @@ Files:
 * FK code: scripts/FK.py 
 * demo video: record1.mp4 ( please skip first 30 seconds )
 
+### Project 3: Perception
+
+Directory: p3/
+
+Files:
+* writeup.md
+* code for project: project.py
+* Request parameters: output_*.yaml
+* exe1/
+* exe2/
+* exe3/
+
