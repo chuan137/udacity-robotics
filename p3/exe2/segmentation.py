@@ -49,10 +49,11 @@ def pcl_callback(pcl_msg):
     ec.set_SearchMethod(tree)
 
     cluster_indices = ec.Extract()
-    print (len(cluster_indices))
 
-    # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
+    # create a list with random colors
     cluster_color = get_color_list(len(cluster_indices))
+
+    # Create Cluster-Mask Point Cloud to visualize each cluster separately
     color_cluster_point_list = []
     for j, indices in enumerate(cluster_indices):
         for i, indice in enumerate(indices):
@@ -77,13 +78,13 @@ def pcl_callback(pcl_msg):
 
 if __name__ == '__main__':
 
-    # TODO: ROS node initialization
+    # ROS node initialization
     rospy.init_node('clustering', anonymous=True)
 
-    # TODO: Create Subscribers
+    # Create Subscribers
     pcl_sub = rospy.Subscriber("/sensor_stick/point_cloud", pc2.PointCloud2, pcl_callback, queue_size=1)
 
-    # TODO: Create Publishers
+    # Create Publishers
     pcl_objects_pub = rospy.Publisher("/pcl_objects", PointCloud2, queue_size=1)
     pcl_table_pub = rospy.Publisher("/pcl_table", PointCloud2, queue_size=1)
     pcl_cluster_pub = rospy.Publisher("/pcl_cluster", PointCloud2, queue_size=1)

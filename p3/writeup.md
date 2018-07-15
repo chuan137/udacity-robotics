@@ -7,17 +7,18 @@
 You're reading it!
 
 ### Exercise 1, 2 and 3 pipeline implemented
-Exercise 1: implement RANSAC.py. RANSA is a algorithm that can fit points to a known model. In this project, it is used to filter the table, which is described by a plan model. A voxel grid filter is first used to downsample the input data, and a pass-through filter is used to cut the non-intrested volume. Finally, the RANSA algorithm is used with a plan model (SACMODEL_PLANE), where parameter `max_distance` is used to control the poits that are included in the plane model.
+**Exercise 1**: implement RANSAC.py (p3/exe1/RNASAC.py). 
+A voxel grid filter is first used to downsample the input data, and a pass-through filter is used to cut the non-intrested volume. Finally, table is segmented with RANSA algorithm using a plane model (SACMODEL_PLANE). Parameter `max_distance` is the distance tolenrance that controls poits to be included in the model.
 
+**Exercise 2**: implement function pcl_callback() in segmentation.py. (p3/exe2/segmentation.py)
+The objects are segemented for further detection. Euclidean clustering (or density-based spatial cluster of applications with noise, DBSCAN) is a clustering algorithm  that creates clusters by grouping data points from their nearest neighbor. The algorithm is accelerated by using a k-d tree in search. Each detected object is assigned to a random color. And the segmented objects are publish to message '/pcl_cluster'.
 
-#### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
+**Exercise 3**: object detection with color and normal historgrams.
+* Calculate histograms implemented in (p3/exe3/features.py). Add additional parameter `bins=32` with default value to methods `compute_color_histograms` and `compute_normal_histograms`.
+*  Read the pick objects from files pick_list_*.yaml and set models in (p3/exe3/capture_features.py). A certain number of samples for each model is generated for training. Training data is taken with histograms with 128 bins.
+* Train model with train_svm.py. A linear SVM model is used, with parameter C = 0.1.
+* Object recognition pipeline in (p3/exe3/object_recognition.py). A loop over the segmented objects (starting from line 99). Feature is extracted both color and normals (line 109), and predction are made using the trained model (line 116). The trained model is loaded in the main method (line 151) before pipeline is started.
 
-#### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
-
-#### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
-Here is an example of how to include an image in your writeup.
-
-![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
 
 ### Pick and Place Setup
 
