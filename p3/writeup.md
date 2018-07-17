@@ -12,6 +12,9 @@
 [move1]: ./images/move_1.png
 [move2]: ./images/move_2.png
 [move3]: ./images/move_3.png
+[result1]: ./images/recognition_1.png
+[result2]: ./images/recognition_2.png
+[result3]: ./images/recognition_3.png
 
 ### Exercise 1, 2 and 3 pipeline implemented
 **Exercise 1**: implement RANSAC.py (p3/exe1/RNASAC.py). 
@@ -59,6 +62,17 @@ Python code in p3/project.py. The requested parameters are in p3/output_*.yaml.
 
 #### 3. Object detection and move_it
 Even though I use 200 samples in training, the object recognition in world 3 is very tricky, since the detection accuracy is relative low. I choosed to move the objects that are "correctly" detected, and continued to detection in the next iteration (line 179 to 205 in p3/project.py). I considered the object is correctly detected, when the label has not been detected and the label is unique in this iteration. So I used a global list `output_labels_list` to keep track of the detected labels.
+
+#### Perception result
+* World 1: all objects are correctly detected
+![result1]
+
+* World 2: 4 objects are correctly detected, biscuits, soap, soap2 and glue
+![result2]
+
+* World 3: 6 objects are correctly detected: snacks, biscuits, soap, soap2, book, eraser
+![result3]
+
 
 My problem is I have to cope with a very slow laptop without graphic card. I generaly got 2~3 fps in moving simulation. And the robot arm cotroller fails to pick up the object even though it is requested. I took a few screenshots without recording a gif.
 ![move1][move1]
