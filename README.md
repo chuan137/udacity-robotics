@@ -33,3 +33,12 @@ Files:
 * exe2/
 * exe3/
 
+### Project 4: Deep Learning
+
+Directory: p4/
+
+Files:
+* writeup.md
+* weight files: model/
+* first training with provided data: model_training.html
+* second training with combination of provided data and collected data: model_training_v2.html
